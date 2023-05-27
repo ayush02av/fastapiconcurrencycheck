@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import asyncio  
+import uvicorn
 
 async def wait():  
     print ("Waiting 5 seconds. ")  
@@ -14,3 +15,6 @@ app = FastAPI()
 async def root():
     await wait()
     return {"message": "Hello World"}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=80, reload=True)
